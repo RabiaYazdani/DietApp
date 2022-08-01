@@ -1,7 +1,11 @@
+import 'package:diet_app/Widgets/report_card_widget.dart';
 import 'package:diet_app/Widgets/buttoni_font_widget.dart';
 import 'package:diet_app/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Widgets/delete&logout_card_widget.dart';
+import '../Widgets/logout_card_widget.dart';
 import '../app_color.dart';
 
 class DrawerView extends StatelessWidget {
@@ -28,13 +32,28 @@ class DrawerView extends StatelessWidget {
             DrawerActionCards(
               label: "Report A Problem",
               icon: Icons.info_outlined,
-              action: () {},
+              action: () {
+                Navigator.pop(context);
+                showDialog(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          content: const ReportCard(),
+                        ));
+              },
             ),
             height(10),
             DrawerActionCards(
               label: "Delete Account",
               icon: Icons.delete_outlined,
-              action: () {},
+              action: () {
+                showDialog(
+                    context: context,
+                    builder: (ctx) => const AlertDialog(
+                          content: DeleteAndLogoutCard(),
+                        ));
+              },
             ),
             const Spacer(),
             const Divider(thickness: 2, color: AppColor.white),
@@ -42,7 +61,13 @@ class DrawerView extends StatelessWidget {
             DrawerActionCards(
               label: "Log Out",
               icon: Icons.logout,
-              action: () {},
+              action: () {
+                showDialog(
+                    context: context,
+                    builder: (ctx) => const AlertDialog(
+                          content: LogoutCard(),
+                        ));
+              },
             ),
           ],
         ),
@@ -65,7 +90,10 @@ class DrawerActionCards extends StatelessWidget {
         Icon(icon),
         width(13),
         TextButton(
-            onPressed: () => action(),
+            onPressed: () {
+              print('function Called');
+              action();
+            },
             child: Text(
               label,
               style: const TextStyle(
