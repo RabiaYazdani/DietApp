@@ -17,8 +17,10 @@ class DeleteCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const Icon(Icons.delete_outlined,
-              color: AppColor.colorCode3, size: 70),
+          SizedBox(
+              height: mediaQuery.height * 0.13,
+              width: mediaQuery.width * 0.13,
+              child: Image.asset("assets/images/delete.png")),
           height(10),
           const Text('Delete Account?',
               style: TextStyle(

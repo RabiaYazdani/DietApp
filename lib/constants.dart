@@ -23,3 +23,11 @@ TextStyle blackFont500 = const TextStyle(
     fontSize: 11, fontWeight: FontWeight.w500, color: AppColor.lightBlack);
 TextStyle blackFont700 = const TextStyle(
     fontSize: 11, fontWeight: FontWeight.w700, color: AppColor.lightBlack);
+
+List<String> tips = [
+  "Drink calorie free drinks only",
+  "Calorie free drinks are water",
+  "Black coffee and black tea",
+  "Sparkling water",
+  "Diet soda"
+];

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../Info_Cards/delete_card.dart';
 import '../Info_Cards/logout_card.dart';
 import '../Info_Cards/payment_card.dart';
+import '../Info_Cards/tips_error_card.dart';
 import '../app_color.dart';
 
 class DrawerView extends StatelessWidget {
@@ -45,18 +46,36 @@ class DrawerView extends StatelessWidget {
               },
             ),
             height(10),
-            DrawerActionCards(
-              label: "Delete Account",
-              icon: Icons.delete_outlined,
-              action: () {
-                showDialog(
-                    context: context,
-                    builder: (ctx) => AlertDialog(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
-                          content: DeleteCard(),
-                        ));
-              },
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 30,
+                  width: 30,
+                  child: Image.asset(
+                    'assets/images/delete.png',
+                    color: AppColor.black,
+                  ),
+                ),
+                width(10),
+                TextButton(
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                content: const DeleteCard(),
+                              ));
+                    },
+                    child: const Text(
+                      "Delete Account",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ))
+              ],
             ),
             const Spacer(),
             TextButton(
@@ -67,10 +86,40 @@ class DrawerView extends StatelessWidget {
                             contentPadding: EdgeInsets.zero,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
-                            content: PaymentCard(),
+                            content: const PaymentCard(),
                           ));
                 },
                 child: const Text('payment_card')),
+            TextButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            content: TipsAndErrorCard(
+                              label: 'Tips',
+                              imageUrl: 'question',
+                              information: tips,
+                            ),
+                          ));
+                },
+                child: const Text('tips_card')),
+            TextButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            content: TipsAndErrorCard(
+                              label: 'Error',
+                              imageUrl: 'info',
+                              information: tips,
+                            ),
+                          ));
+                },
+                child: const Text('error_card')),
             const Divider(thickness: 2, color: AppColor.white),
             height(10),
             DrawerActionCards(
@@ -103,6 +152,7 @@ class DrawerActionCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Icon(icon),
         width(13),

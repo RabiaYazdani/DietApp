@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../app_color.dart';
 import '../constants.dart';
 
@@ -47,7 +45,7 @@ class PaymentCard extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +67,7 @@ class PaymentCard extends StatelessWidget {
                               ],
                             ),
                           )),
-                  Spacer(),
+                  const Spacer(),
                   SizedBox(
                     height: 50,
                     width: double.infinity,
