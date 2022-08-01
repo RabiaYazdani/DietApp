@@ -1,10 +1,10 @@
 import 'package:diet_app/Screens/camera_permission_screen.dart';
-import 'package:diet_app/Widgets/background_image.dart';
+import 'package:diet_app/Widgets/background_image_widget.dart';
 import 'package:diet_app/app_color.dart';
 import 'package:diet_app/constants.dart';
 import 'package:flutter/material.dart';
 
-import '../Widgets/text_action_card.dart';
+import '../Widgets/text_action_widget.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key, required this.screenTitle}) : super(key: key);

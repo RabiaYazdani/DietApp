@@ -13,7 +13,6 @@ class ReportCard extends StatelessWidget {
       height: mediaQuery.height * 0.57,
       width: mediaQuery.width * 0.65,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +22,7 @@ class ReportCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w600,
-              color: AppColor.red,
+              color: AppColor.colorCode3,
             ),
           ),
           height(3),
@@ -51,7 +50,7 @@ class ReportCard extends StatelessWidget {
               onPressed: () {
                 //todo: Message Sending functionality goes here.
               },
-              style: elevatedButtonStyle(AppColor.red, AppColor.white),
+              style: elevatedButtonStyle(AppColor.colorCode3, AppColor.white),
               child: const Text('Send'),
             ),
           ),

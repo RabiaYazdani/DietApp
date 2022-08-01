@@ -8,12 +8,13 @@ class CameraPermissionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            height(40),
+            height(mediaQuery.height * 0.07),
             const Text('ACCESS YOUR CAMERA',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -22,21 +23,21 @@ class CameraPermissionScreen extends StatelessWidget {
                     color: AppColor.black2)),
             height(20),
             Container(
-                height: 370,
-                width: 250,
+                height: mediaQuery.height * 0.53,
+                width: mediaQuery.width * 0.5,
                 decoration: BoxDecoration(
                   border: Border.all(width: 2, color: AppColor.colorCode3),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Center(
                     child: SizedBox(
-                  height: 80,
-                  width: 80,
+                  height: mediaQuery.height * 0.2,
+                  width: mediaQuery.width * 0.2,
                   child: Image.asset('assets/images/camera.png'),
                 ))),
-            height(30),
+            height(mediaQuery.height * 0.04),
             SizedBox(
-              height: 50,
+              height: mediaQuery.height * 0.07,
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {

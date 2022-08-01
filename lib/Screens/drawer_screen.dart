@@ -1,11 +1,12 @@
-import 'package:diet_app/Widgets/report_card_widget.dart';
+import 'package:diet_app/Info_Cards/report_card.dart';
 import 'package:diet_app/Widgets/buttoni_font_widget.dart';
 import 'package:diet_app/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../Widgets/delete&logout_card_widget.dart';
-import '../Widgets/logout_card_widget.dart';
+import '../Info_Cards/delete_card.dart';
+import '../Info_Cards/logout_card.dart';
+import '../Info_Cards/payment_card.dart';
 import '../app_color.dart';
 
 class DrawerView extends StatelessWidget {
@@ -50,12 +51,26 @@ class DrawerView extends StatelessWidget {
               action: () {
                 showDialog(
                     context: context,
-                    builder: (ctx) => const AlertDialog(
-                          content: DeleteAndLogoutCard(),
+                    builder: (ctx) => AlertDialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          content: DeleteCard(),
                         ));
               },
             ),
             const Spacer(),
+            TextButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                            contentPadding: EdgeInsets.zero,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            content: PaymentCard(),
+                          ));
+                },
+                child: const Text('payment_card')),
             const Divider(thickness: 2, color: AppColor.white),
             height(10),
             DrawerActionCards(
@@ -64,8 +79,10 @@ class DrawerView extends StatelessWidget {
               action: () {
                 showDialog(
                     context: context,
-                    builder: (ctx) => const AlertDialog(
-                          content: LogoutCard(),
+                    builder: (ctx) => AlertDialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          content: const LogoutCard(),
                         ));
               },
             ),
