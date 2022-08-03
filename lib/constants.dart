@@ -31,3 +31,5 @@ List<String> tips = [
   "Sparkling water",
   "Diet soda"
 ];
+TextStyle yellowText = const TextStyle(
+    fontWeight: FontWeight.w500, fontSize: 24, color: AppColor.colorCode3);

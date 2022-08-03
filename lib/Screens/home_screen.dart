@@ -1,3 +1,5 @@
+import 'package:diet_app/Info_Cards/social_link_card.dart';
+import 'package:diet_app/Screens/bite_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../Info_Cards/payment_card.dart';
@@ -48,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {
                       scaffoldState.currentState?.openDrawer();
                     },
-                    icon: Icon(Icons.menu))
+                    icon: Icon(Icons.menu, size: 40))
               ],
             ),
             const Spacer(),
@@ -60,29 +62,19 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (ctx) => const BiteScreen()));
+                },
+                icon: Image.asset('assets/images/eat.png'),
+                iconSize: 30,
+              ),
               Container(
                   padding: const EdgeInsets.all(7),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: food ? AppColor.colorCode3 : AppColor.white),
-                  child: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        food = !food;
-                        cam = false;
-                        social = false;
-                      });
-                    },
-                    icon: food
-                        ? Image.asset('assets/images/eat_selected.png')
-                        : Image.asset('assets/images/eat.png'),
-                    iconSize: 30,
-                  )),
-              Container(
-                  padding: const EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: cam ? AppColor.colorCode3 : AppColor.white),
+                      color: AppColor.colorCode3),
                   child: IconButton(
                     onPressed: () {
                       setState(() {
@@ -91,45 +83,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         social = false;
                       });
                     },
-                    icon: cam
-                        ? Image.asset('assets/images/cam_selected.png')
-                        : Image.asset('assets/images/cam.png'),
+                    icon: Image.asset('assets/images/cam_selected.png'),
                     iconSize: 30,
                   )),
-              Container(
-                  padding: const EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: social ? AppColor.colorCode3 : AppColor.white),
-                  child: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        social = !social;
-                        food = false;
-                        cam = false;
-                        showDialog(
-                            context: context,
-                            builder: (ctx) => AlertDialog(
-                                  contentPadding: EdgeInsets.zero,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20)),
-                                  content: const PaymentCard(),
-                                ));
-                      });
-                    },
-                    icon: social
-                        ? Image.asset('assets/images/social_selected.png')
-                        : Image.asset('assets/images/social.png'),
-                    iconSize: 30,
-                  )),
-              // SizedBox(
-              //     height: 30,
-              //     width: 30,
-              //     child: Image.asset('assets/images/cam.png')),
-              // SizedBox(
-              //     height: 30,
-              //     width: 30,
-              //     child: Image.asset('assets/images/social.png')),
+              IconButton(
+                onPressed: () {
+                  social = !social;
+                  food = false;
+                  cam = false;
+                  showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                            contentPadding: EdgeInsets.zero,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            content: const SocialLinkCard(),
+                          ));
+                },
+                icon: Image.asset('assets/images/social.png'),
+                iconSize: 30,
+              ),
             ],
           ),
         ),
