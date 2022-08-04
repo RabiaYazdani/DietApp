@@ -1,7 +1,3 @@
-import 'package:diet_app/Info_Cards/report_card.dart';
-import 'package:diet_app/Widgets/buttoni_font_widget.dart';
-import 'package:diet_app/constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../Info_Cards/delete_card.dart';
@@ -9,6 +5,9 @@ import '../Info_Cards/logout_card.dart';
 import '../Info_Cards/payment_card.dart';
 import '../Info_Cards/tips_error_card.dart';
 import '../app_color.dart';
+import '../Info_Cards/report_card.dart';
+import '../Widgets/buttoni_font_widget.dart';
+import '../constants.dart';
 
 class DrawerView extends StatelessWidget {
   const DrawerView({Key? key}) : super(key: key);
@@ -158,7 +157,6 @@ class DrawerActionCards extends StatelessWidget {
         width(13),
         TextButton(
             onPressed: () {
-              print('function Called');
               action();
             },
             child: Text(

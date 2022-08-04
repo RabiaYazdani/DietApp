@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'app_color.dart';
 
@@ -33,3 +34,13 @@ List<String> tips = [
 ];
 TextStyle yellowText = const TextStyle(
     fontWeight: FontWeight.w500, fontSize: 24, color: AppColor.colorCode3);
+
+class ConstantParameters {
+  static late List<CameraDescription> camera;
+
+  static Future<List<CameraDescription>> cameraList() async {
+    camera = await availableCameras();
+    print('camera initialized Successfully');
+    return camera;
+  }
+}

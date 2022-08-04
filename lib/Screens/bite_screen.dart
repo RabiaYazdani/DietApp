@@ -14,8 +14,7 @@ class BiteScreen extends StatefulWidget {
 }
 
 class _BiteScreenState extends State<BiteScreen> {
-  GlobalKey<ScaffoldState> scaffoldState = GlobalKey<ScaffoldState>();
-  int _maxSeconds = 5;
+  int _maxSeconds = 60;
   int _currentSecond = 0;
   Timer? _timer;
   int burp = 0;
@@ -47,7 +46,7 @@ class _BiteScreenState extends State<BiteScreen> {
   }
 
   _resetTimer() {
-    _maxSeconds = 80;
+    _maxSeconds = 60;
     _currentSecond = 0;
     burp = 0;
   }
@@ -61,6 +60,8 @@ class _BiteScreenState extends State<BiteScreen> {
 
   String status(int burp) {
     switch (burp) {
+      case 0:
+        return "Enjoy your meal";
       case 1:
         return "Check if you are feeling full";
       case 2:
@@ -70,10 +71,10 @@ class _BiteScreenState extends State<BiteScreen> {
     }
   }
 
+  GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
-
     return SafeArea(
       child: Scaffold(
         key: scaffoldState,
@@ -81,7 +82,18 @@ class _BiteScreenState extends State<BiteScreen> {
         body: Stack(
           children: [
             backgroundImage(mediaQuery),
-            drawerWidget(),
+            Builder(builder: (context) {
+              return Padding(
+                padding: const EdgeInsets.all(20),
+                child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        scaffoldState.currentState?.openDrawer();
+                      });
+                    },
+                    icon: const Icon(Icons.menu, size: 40)),
+              );
+            }),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: SingleChildScrollView(
@@ -120,6 +132,7 @@ class _BiteScreenState extends State<BiteScreen> {
                                 setState(() {
                                   _startTimer();
                                   eating = true;
+                                  _resetTimer();
                                 });
                               },
                         child: SizedBox(
@@ -130,7 +143,7 @@ class _BiteScreenState extends State<BiteScreen> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             child: Container(
-                                padding: EdgeInsets.all(20),
+                                padding: const EdgeInsets.all(20),
                                 alignment: Alignment.center,
                                 child: Text(
                                   'Take a bite',
@@ -146,6 +159,9 @@ class _BiteScreenState extends State<BiteScreen> {
                     height(20),
                     GestureDetector(
                       onTap: () {
+                        if (eating == false) {
+                          return;
+                        }
                         setState(() {
                           burp++;
                         });
@@ -155,7 +171,15 @@ class _BiteScreenState extends State<BiteScreen> {
                     ),
                     height(20),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        if (eating == false) {
+                          return;
+                        }
+                        setState(() {
+                          _timer!.cancel();
+                          eating = false;
+                        });
+                      },
                       child: const ActionCardWidget(
                           actionWidgetLabel: 'Finish Eating'),
                     ),
@@ -186,19 +210,6 @@ class _BiteScreenState extends State<BiteScreen> {
           ),
         ));
   }
-
-  Widget drawerWidget() {
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: IconButton(
-          onPressed: () {
-            setState(() {
-              scaffoldState.currentState?.openDrawer();
-            });
-          },
-          icon: const Icon(Icons.menu, size: 40)),
-    );
-  }
 }
 
 class ActionCardWidget extends StatelessWidget {
@@ -214,7 +225,7 @@ class ActionCardWidget extends StatelessWidget {
         elevation: 5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             alignment: Alignment.center,
             child: Text(
               actionWidgetLabel,

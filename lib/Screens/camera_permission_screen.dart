@@ -1,7 +1,8 @@
-import 'package:diet_app/Screens/home_screen.dart';
-import 'package:diet_app/app_color.dart';
-import 'package:diet_app/constants.dart';
 import 'package:flutter/material.dart';
+
+import '../Screens/home_screen.dart';
+import '../app_color.dart';
+import '../constants.dart';
 
 class CameraPermissionScreen extends StatelessWidget {
   const CameraPermissionScreen({Key? key}) : super(key: key);
@@ -41,8 +42,12 @@ class CameraPermissionScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (ctx) => const HomeScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (ctx) => const HomeScreen(
+                                imagePath: "",
+                              )));
                 },
                 style: elevatedButtonStyle(AppColor.colorCode3, AppColor.white),
                 child: const Text('Enable Access'),
@@ -50,8 +55,12 @@ class CameraPermissionScreen extends StatelessWidget {
             ),
             TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (ctx) => const HomeScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (ctx) => const HomeScreen(
+                                imagePath: "",
+                              )));
                 },
                 child: const Text(
                   'Do Not Allow',

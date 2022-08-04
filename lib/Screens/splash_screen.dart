@@ -1,11 +1,11 @@
-import 'package:diet_app/Screens/signup_signIn_screen.dart';
-import 'package:diet_app/Widgets/background_image_widget.dart';
-import 'package:diet_app/Widgets/buttoni_font_widget.dart';
-import 'package:diet_app/app_color.dart';
-import 'package:diet_app/constants.dart';
 import 'package:flutter/material.dart';
 
 import '../Widgets/text_action_widget.dart';
+import '../Screens/signup_signIn_screen.dart';
+import '../Widgets/background_image_widget.dart';
+import '../Widgets/buttoni_font_widget.dart';
+import '../app_color.dart';
+import '../constants.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
