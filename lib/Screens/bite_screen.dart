@@ -82,18 +82,14 @@ class _BiteScreenState extends State<BiteScreen> {
         body: Stack(
           children: [
             backgroundImage(mediaQuery),
-            Builder(builder: (context) {
-              return Padding(
-                padding: const EdgeInsets.all(20),
-                child: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        scaffoldState.currentState?.openDrawer();
-                      });
-                    },
-                    icon: const Icon(Icons.menu, size: 40)),
-              );
-            }),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: IconButton(
+                  onPressed: () {
+                    scaffoldState.currentState?.openDrawer();
+                  },
+                  icon: const Icon(Icons.menu, size: 40)),
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: SingleChildScrollView(

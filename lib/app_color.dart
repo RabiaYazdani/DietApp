@@ -20,4 +20,14 @@ class AppColor {
   static const Color greyShade2 = Color(0xffBFBFBF);
   static const Color red = Color(0xffFF2305);
   static const Color white = Colors.white;
+
+  static List<Color> statusColor = const [
+    Color(0xffFFEE00),
+    Color(0xffFEDC00),
+    Color(0xffFFC905),
+    Color(0xffFBB400),
+    Color(0xffEEA204),
+    Color(0xffEE8601),
+    Color(0xffE86903),
+  ];
 }

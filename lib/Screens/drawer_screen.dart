@@ -82,33 +82,6 @@ class DrawerView extends StatelessWidget {
                   showDialog(
                       context: context,
                       builder: (ctx) => AlertDialog(
-                            contentPadding: EdgeInsets.zero,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)),
-                            content: const PaymentCard(),
-                          ));
-                },
-                child: const Text('payment_card')),
-            TextButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (ctx) => AlertDialog(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)),
-                            content: TipsAndErrorCard(
-                              label: 'Tips',
-                              imageUrl: 'question',
-                              information: tips,
-                            ),
-                          ));
-                },
-                child: const Text('tips_card')),
-            TextButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (ctx) => AlertDialog(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             content: TipsAndErrorCard(

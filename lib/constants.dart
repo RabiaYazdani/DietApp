@@ -1,5 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'Info_Cards/payment_card.dart';
+import 'Info_Cards/tips_error_card.dart';
 import 'app_color.dart';
 
 SizedBox width(double size) {
@@ -43,4 +45,33 @@ class ConstantParameters {
     print('camera initialized Successfully');
     return camera;
   }
+}
+
+void showTips(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          content: TipsAndErrorCard(
+            label: 'Tips',
+            imageUrl: 'question',
+            information: tips,
+          ));
+    },
+  );
+}
+
+void showPaymentCard(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        contentPadding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        content: const PaymentCard(),
+      );
+    },
+  );
 }
