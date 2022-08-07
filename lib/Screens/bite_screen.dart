@@ -71,7 +71,7 @@ class _BiteScreenState extends State<BiteScreen> {
     }
   }
 
-  GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
+  GlobalKey<ScaffoldState> scaffoldState = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
@@ -83,21 +83,13 @@ class _BiteScreenState extends State<BiteScreen> {
           children: [
             backgroundImage(mediaQuery),
             Padding(
-              padding: const EdgeInsets.all(10),
-              child: IconButton(
-                  onPressed: () {
-                    scaffoldState.currentState?.openDrawer();
-                  },
-                  icon: const Icon(Icons.menu, size: 40)),
-            ),
-            Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    height(140),
+                    height(mediaQuery.height * 0.14),
                     Center(
                         child: ButtoniText(
                             size: 40,
@@ -189,7 +181,15 @@ class _BiteScreenState extends State<BiteScreen> {
                   ],
                 ),
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: IconButton(
+                  onPressed: () {
+                    scaffoldState.currentState?.openDrawer();
+                  },
+                  icon: const Icon(Icons.menu, size: 40)),
+            ),
           ],
         ),
       ),

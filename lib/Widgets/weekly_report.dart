@@ -27,25 +27,26 @@ class WeeklyReport extends StatelessWidget {
                     borderRadius: BorderRadius.circular(40)),
                 child: Row(
                   children: [
-                    if (data["breakfast"] == true)
-                      Container(
-                        width: mediaQuery.width * 0.22,
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(40),
-                                bottomLeft: Radius.circular(40)),
-                            color: AppColor.colorCode1),
-                      ),
-                    if (data["lunch"] == true)
-                      Container(
+                    Container(
+                      width: mediaQuery.width * 0.22,
+                      decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(40),
+                              bottomLeft: Radius.circular(40)),
+                          color: data["breakfast"] == true
+                              ? AppColor.colorCode4
+                              : Colors.white),
+                    ),
+                    Container(
                         width: mediaQuery.width * 0.24,
-                        color: AppColor.colorCode2,
-                      ),
-                    if (data["snack"] == true)
-                      Container(
+                        color: data["lunch"] == true
+                            ? AppColor.colorCode4
+                            : Colors.white),
+                    Container(
                         width: mediaQuery.width * 0.14,
-                        color: AppColor.colorCode3,
-                      ),
+                        color: data["snack"] == true
+                            ? AppColor.colorCode4
+                            : Colors.white),
                     Container(
                       width: mediaQuery.width * 0.281,
                       decoration: BoxDecoration(

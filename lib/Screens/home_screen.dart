@@ -31,13 +31,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     GlobalKey<ScaffoldState> scaffoldState = GlobalKey<ScaffoldState>();
-    // if (widget.imagePath != "") {
-    //   Future.delayed(
-    //       const Duration(seconds: 1), () => showPaymentCard(context));
-    // }
-    // if (widget.imagePath == "") {
-    //   Future.delayed(const Duration(seconds: 1), () => showTips(context));
-    // }
+    if (widget.imagePath != "") {
+      Future.delayed(
+          const Duration(seconds: 1), () => showPaymentCard(context));
+    }
+    if (widget.imagePath == "") {
+      Future.delayed(const Duration(seconds: 1), () => showTips(context));
+    }
     return SafeArea(
       child: Scaffold(
         key: scaffoldState,
