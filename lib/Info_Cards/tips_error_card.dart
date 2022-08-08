@@ -17,17 +17,16 @@ class TipsAndErrorCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
     return Container(
-      height: mediaQuery.height * 0.47,
+      height: mediaQuery.height * 0.45,
       width: mediaQuery.width * 0.65,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       child: Column(
         children: [
           SizedBox(
               height: mediaQuery.height * 0.13,
-              width: mediaQuery.width * 0.2,
+              width: mediaQuery.width * 0.25,
               child: Image.asset(
                 "assets/images/$imageUrl.png",
-                fit: BoxFit.fill,
               )),
           Text(label,
               style: const TextStyle(
@@ -39,7 +38,7 @@ class TipsAndErrorCard extends StatelessWidget {
               information.length,
               (index) => Padding(
                     padding: const EdgeInsets.only(
-                        left: 30.0, right: 8, bottom: 14, top: 5),
+                        left: 15.0, right: 8, bottom: 4, top: 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,7 +56,8 @@ class TipsAndErrorCard extends StatelessWidget {
                         )
                       ],
                     ),
-                  ))
+                  )),
+          SizedBox(height: mediaQuery.height * 0.02)
         ],
       ),
     );

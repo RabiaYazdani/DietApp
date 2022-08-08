@@ -17,12 +17,13 @@ class TextActionCard extends StatelessWidget {
   final Function action;
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(labelText, style: blackFont500),
-        width(2),
+        // width(mediaQuery.width * 0.0001),
         GestureDetector(
           onTap: () => action(),
           child: Text(actionText, style: style),

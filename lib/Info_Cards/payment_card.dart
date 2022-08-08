@@ -45,7 +45,7 @@ class PaymentCard extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,8 +62,8 @@ class PaymentCard extends StatelessWidget {
                                   radius: 4,
                                   backgroundColor: AppColor.blackShade,
                                 ),
-                                width(20),
-                                const Text('Lorem ipsum dolor sit amet')
+                                width(mediaQuery.width * 0.03),
+                                const Text('Lorem ipsum dolor sit amet'),
                               ],
                             ),
                           )),

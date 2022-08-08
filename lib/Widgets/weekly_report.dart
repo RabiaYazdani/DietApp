@@ -20,7 +20,6 @@ class WeeklyReport extends StatelessWidget {
           children: [
             SizedBox(
               height: mediaQuery.height * 0.08,
-              width: double.infinity,
               child: Card(
                 elevation: 10,
                 shape: RoundedRectangleBorder(
@@ -34,18 +33,18 @@ class WeeklyReport extends StatelessWidget {
                               topLeft: Radius.circular(40),
                               bottomLeft: Radius.circular(40)),
                           color: data["breakfast"] == true
-                              ? AppColor.colorCode4
+                              ? AppColor.colorCode1
                               : Colors.white),
                     ),
                     Container(
                         width: mediaQuery.width * 0.24,
                         color: data["lunch"] == true
-                            ? AppColor.colorCode4
+                            ? AppColor.colorCode2
                             : Colors.white),
                     Container(
                         width: mediaQuery.width * 0.14,
                         color: data["snack"] == true
-                            ? AppColor.colorCode4
+                            ? AppColor.colorCode3
                             : Colors.white),
                     Container(
                       width: mediaQuery.width * 0.281,

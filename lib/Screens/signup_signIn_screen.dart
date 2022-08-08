@@ -120,6 +120,7 @@ class SocialLoginWidget extends StatelessWidget {
   final Function action;
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () => action(),
       child: Container(
@@ -134,7 +135,7 @@ class SocialLoginWidget extends StatelessWidget {
           children: [
             width(20),
             Image.asset("assets/images/$icon"),
-            width(50),
+            width(mediaQuery.width * 0.04),
             Text(
               title,
               style: TextStyle(

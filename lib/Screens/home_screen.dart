@@ -30,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
     GlobalKey<ScaffoldState> scaffoldState = GlobalKey<ScaffoldState>();
     if (widget.imagePath != "") {
       Future.delayed(
@@ -55,14 +56,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           fit: BoxFit.fill),
                 ),
                 Positioned(
-                  top: 50,
-                  left: 60,
-                  child: SizedBox(
-                    height: 200,
-                    width: 300,
-                    child: Image.asset(
-                      'assets/images/border.png',
-                      fit: BoxFit.fill,
+                  top: mediaQuery.height * 0.07,
+                  left: mediaQuery.width * 0.15,
+                  child: Center(
+                    child: SizedBox(
+                      height: mediaQuery.height * 0.3,
+                      width: mediaQuery.width * 0.7,
+                      child: Image.asset(
+                        'assets/images/border.png',
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),

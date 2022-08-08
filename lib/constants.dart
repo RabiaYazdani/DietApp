@@ -25,7 +25,7 @@ ButtonStyle elevatedButtonStyle(Color backgroundColor, Color foregroundColor) {
 TextStyle blackFont500 = const TextStyle(
     fontSize: 11, fontWeight: FontWeight.w500, color: AppColor.lightBlack);
 TextStyle blackFont700 = const TextStyle(
-    fontSize: 11, fontWeight: FontWeight.w700, color: AppColor.lightBlack);
+    fontSize: 11, fontWeight: FontWeight.w600, color: AppColor.lightBlack);
 
 List<String> tips = [
   "Drink calorie free drinks only",
